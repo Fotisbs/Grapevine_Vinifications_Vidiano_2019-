@@ -1,8 +1,9 @@
 # ***Metataxonomic and metatranscriptomic analysis reveal microbial succession and metabolic pathways activated during spontaneous and inoculated vinification ***
 
-### By Bekris F. <sup>1</sup>, Papadopoulou E. <sup>1</sup>, Vasileiadis S. <sup>1</sup>, Lola D. <sup>2</sup>, Kotseridis Y. <sup>2</sup>, Karpouzas D.G <sup>1*</sup>
+### By Bekris F. <sup>1+</sup>, Papadopoulou E. <sup>1+</sup>, Vasileiadis S. <sup>1</sup>, Lola D. <sup>2</sup>, Kotseridis Y. <sup>2</sup>, Karpouzas D.G <sup>1*</sup>
 
 ### (\* corr. author)
+###(\+ contributed equally to this work)
 
 <sup>1</sup> University of Thessaly, Department of Biochemistry and Biotechnology, Laboratory of Plant and Environmental Biotechnology, 41500 Viopolis – Larissa, Greece
 
