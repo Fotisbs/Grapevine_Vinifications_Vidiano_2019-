@@ -102,14 +102,6 @@ cd ../../
 
 3c.) Run PERMANOVA analysis
 
-cd Fungi/3.DataAnalysis/PERMANOVA
-Rscript PERMANOVA.R
-cd ../../../
-cd Bacteria/3.DataAnalysis/PERMANOVA
-Rscript PERMANOVA.R
-cd ../../../
-```
-
 3d.) Run Volcano plot for the differentially expressed genes
 
 3e.) Run Differential abundance (DA) heatmaps for metatranscriptomic dataset
