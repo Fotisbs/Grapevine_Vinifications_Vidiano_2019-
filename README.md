@@ -93,7 +93,7 @@ tar vxf *.gz
 Bacteria Vinification Vinification Vidiano 2020 Quality-Classification-Phyloseq Object.r
 cd ../../
 ```
-3) Data analysis folder include subfolders for each analysis graphs supplied at the researched article "Spontaneous vinification supports different microbiota, volatilome and leads to wines with different sensory attributes compared to vinifications inoculated with commercial and indigenous to Vidiano cultivar Saccharomyces cerevisiae". Subfolders contain the R script to be executed for "Fungi" and "Bacteria" accordingly. In same cases the outcome graphs were digitally corrected for aesthetics reasons only. 
+3) Data analysis folder include subfolders for each analysis graphs supplied at the researched article "Metataxonomic and metatranscriptomic analysis reveal microbial succession and metabolic pathways activated during spontaneous and inoculated vinification". Subfolders contain the R script to be executed for "Fungi", "Bacteria", and "Metatranscriptomic" accordingly. 
 ```
 
 3a.) Run Bar Plots analysis
