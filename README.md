@@ -100,11 +100,7 @@ cd ../../
 
 3b.) Run NMDS and Pairwise-PERMANOVA  analysis
 
-3c.) Run Principal Component analysis of volatile loadings 
-
-3d.) Run Ordination Triplot analysis
-
-3e.) Run PERMANOVA analysis
+3c.) Run PERMANOVA analysis
 
 cd Fungi/3.DataAnalysis/PERMANOVA
 Rscript PERMANOVA.R
@@ -113,6 +109,18 @@ cd Bacteria/3.DataAnalysis/PERMANOVA
 Rscript PERMANOVA.R
 cd ../../../
 ```
+
+3d.) Run Volcano plot for the differentially expressed genes
+
+3e.) Run Differential abundance (DA) heatmaps for metatranscriptomic dataset
+
+Further on continue for the supplementary graphs
+
+3f.) Run Rarefaction curves
+
+3g.) Run The α-diversity Shannon index
+
+3h.) Run the Differential abundance (DA) heatmaps for microbiome dataset
 
 
 ## Code Usage disclaimer<a name="disclaimer"></a>
