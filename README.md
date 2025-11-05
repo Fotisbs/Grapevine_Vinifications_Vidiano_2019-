@@ -113,6 +113,10 @@ Further on continue for the supplementary graphs
 
 For Metatranscriptomic file step 0 concern the data retrieval from NCBI and preprocessing, while step 1-2 and the subfolders concern the actual data analysis.
 
+0) First, it is necessary to download the sequencing data.
+
+1) 
+
 2) Data analysis folder include subfolders for each analysis graphs supplied at the researched article "Metataxonomic and metatranscriptomic analysis reveal microbial succession and metabolic pathways activated during spontaneous and inoculated vinification". Subfolders contain the R script to be executed for "Metatranscriptomic" for both main and supplementary figures. 
 ```
 2a. Run NMDS Analysis
