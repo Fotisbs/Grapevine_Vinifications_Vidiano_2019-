@@ -120,7 +120,7 @@ For Metatranscriptomic file step 0 concern the data retrieval from NCBI and prep
 2b.) Run Volcano plot for the differentially expressed genes
 
 2c.) Run Differential abundance (DA) heatmaps for metatranscriptomic dataset
-
+```
 
 
 ## Code Usage disclaimer<a name="disclaimer"></a>
