@@ -51,13 +51,6 @@ Top20_MUST_Bacteria_Genus <- prune_taxa(taxa_sums(Top20_MUST_Bacteria_Genus)>0,T
 
 mytax20_MUST_Bacteria_Genus <- data.frame(tax_table(Top20_MUST_Bacteria_Genus), stringsAsFactors = F)
 
-# For ITS - Remove letter from taxonomy
-for (i in c(1:nrow(mytax20_MUST_Bacteria_Genus))) {
-  for(j in c(1:ncol(mytax20_MUST_Bacteria_Genus))) {
-    mytax20_MUST_Bacteria_Genus[i,j] <- gsub("[a-z]__","",mytax20_MUST_Bacteria_Genus[i,j])
-  }
-}
-
 mytxplot20_MUST_Bacteria_Genus <- data.frame(OTU = row.names(mytax20_MUST_Bacteria_Genus), 
                                              txplt = paste(row.names(mytax20_MUST_Bacteria_Genus), " ", mytax20_MUST_Bacteria_Genus$Genus,  ":", mytax20_MUST_Bacteria_Genus$Genus,  sep = ""))
 
@@ -70,5 +63,6 @@ mycols <- c("dodgerblue2","#E31A1C","green4","#6A3D9A","#FF7F00","black", "gold1
 pdf(file = "Top20_MUST_Bacteria_Genus.pdf", width = 14, height = 7)
 
 plot_bar(Top20_MUST_Bacteria_Genus, fill="OTU", title = "") + facet_grid(cols = vars(vinification)) + geom_col() + scale_fill_manual(values = mycols)
+
 
 dev.off()
