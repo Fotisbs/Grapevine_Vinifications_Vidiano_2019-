@@ -96,30 +96,30 @@ cd ../../
 3) Data analysis folder include subfolders for each analysis graphs supplied at the researched article "Metataxonomic and metatranscriptomic analysis reveal microbial succession and metabolic pathways activated during spontaneous and inoculated vinification". Subfolders contain the R script to be executed for "Fungi" and "Bacteria" for both main and supplementary figures. 
 ```
 
-3a.) Run Bar Plots analysis
+3a. Run Bar Plots analysis
 
-3b.) Run NMDS and Pairwise-PERMANOVA  analysis
+3b. Run NMDS and Pairwise-PERMANOVA  analysis
 
-3c.) Run PERMANOVA analysis
+3c. Run PERMANOVA analysis
 
 Further on continue for the supplementary graphs
 
-3d.) Run Rarefaction curves
+3d. Run Rarefaction curves
 
-3e.) Run The α-diversity Shannon index
+3e. Run The α-diversity Shannon index
 
-3f.) Run the Differential abundance (DA) heatmaps for microbiome dataset
+3f. Run the Differential abundance (DA) heatmaps for microbiome dataset
 ```
 
 For Metatranscriptomic file step 0 concern the data retrieval from NCBI and preprocessing, while step 1-2 and the subfolders concern the actual data analysis.
 
 2) Data analysis folder include subfolders for each analysis graphs supplied at the researched article "Metataxonomic and metatranscriptomic analysis reveal microbial succession and metabolic pathways activated during spontaneous and inoculated vinification". Subfolders contain the R script to be executed for "Metatranscriptomic" for both main and supplementary figures. 
 ```
-2a.) Run PERMANOVA analysis
+2a. Run PERMANOVA analysis
 
-2b.) Run Volcano plot for the differentially expressed genes
+2b. Run Volcano plot for the differentially expressed genes
 
-2c.) Run Differential abundance (DA) heatmaps for metatranscriptomic dataset
+2c. Run Differential abundance (DA) heatmaps for metatranscriptomic dataset
 ```
 
 
