@@ -96,11 +96,11 @@ cd ../../
 3) Data analysis folder include subfolders for each analysis graphs supplied at the researched article "Metataxonomic and metatranscriptomic analysis reveal microbial succession and metabolic pathways activated during spontaneous and inoculated vinification". Subfolders contain the R script to be executed for "Fungi" and "Bacteria" for both main and supplementary figures. 
 ```
 
-3a. Run Bar Plots analysis
+3a. Run Bar Plots Analysis
 
-3b. Run NMDS analysis
+3b. Run NMDS Analysis
 
-3c. Run PERMANOVA analysis
+3c. Run PERMANOVA Analysis
 
 Further on continue for the supplementary graphs
 
@@ -115,9 +115,9 @@ For Metatranscriptomic file step 0 concern the data retrieval from NCBI and prep
 
 2) Data analysis folder include subfolders for each analysis graphs supplied at the researched article "Metataxonomic and metatranscriptomic analysis reveal microbial succession and metabolic pathways activated during spontaneous and inoculated vinification". Subfolders contain the R script to be executed for "Metatranscriptomic" for both main and supplementary figures. 
 ```
-2a. Run NMDS analysis
+2a. Run NMDS Analysis
 
-2b. Run PERMANOVA analysis
+2b. Run PERMANOVA Analysis
 
 2c. Run Volcano plot for the differentially expressed genes
 
