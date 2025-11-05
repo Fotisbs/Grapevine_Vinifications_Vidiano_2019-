@@ -22,10 +22,10 @@ In the case of the computational methods, with the "Grapevine_Vinifications_Vidi
 
 ## Description of the order of executed scripts.
 
-Steps 0-2 concern the data retrieval from NCBI and preprocessing, while step 3 and the subfolders concern the actual data analysis for total fungi and bacteria. 
+For Fungi and Bacteria files, steps 0-2 concern the data retrieval from NCBI and preprocessing (demultiplex), while step 3 and the subfolders concern the actual data analysis.
 
 0) First, it is necessary to download the sequencing data.
-To do so, you need to enter the "0.DownloadData" subfolder of "Fungi" and "Bacteria" folders accordingly and execute the "fetch_data.sh" bash script for each batch (01-03), this assumes that you are located at the working directory "Grapevine_Vinifications_Vidiano_2019-"). The NCBI submitted amplicons are includes at those batch/files.The script is based on the SRR accession numbers for each batch file and can be found in the 0.DownloadData folder as a.txt file.
+To do so, you need to enter the "0.DownloadData" subfolder of "Fungi" and "Bacteria" folders accordingly and execute the "fetch_data.sh" bash script for batch (01), this assumes that you are located at the working directory "Grapevine_Vinifications_Vidiano_2019-"). The NCBI submitted amplicons are includes at those batch/files.The script is based on the SRR accession numbers for each batch file and can be found in the 0.DownloadData folder as a.txt file.
 Once the download is done, you need to combine all forward reads to a single file and all reverse reads to another file as well.
 ```
 for i in {01}
@@ -50,7 +50,7 @@ You need to enter the folder Fungi/1.Demultiplex and run the following commands 
 the following commands are going to save the demultiplexed files in the Fungi(or Bacteria)/1.Demultiplex/demux_out folder.
 ```
 MY_WORKING_DIR_BASE=`pwd`
-for i in {01..03}
+for i in {01}
 do
   cd Fungi/1.Demultiplex
   MY_PROCS=56
@@ -76,24 +76,24 @@ mkdir -p demux_out/analysis_ready
 cp demux_out[0-9]/analysis_ready/*.fastq demux_out/analysis_ready/
 cd ../../
 ```
-2) Following, the "Vinification Vidiano 2019 Quality-Classification-Phyloseq Object.R" script of the Fungi(or Bacteria)/2.PhyloseqObjectPerp folder is run in order to prepare the final phyloseq object to be used in the data analysis described below. Before running the script make sure that the necessary reference databases are found in the same folder.
+2) Following, the "Vinification Vidiano 2019 Quality-Classification-Phyloseq Object.R" script of the Fungi(or Bacteria)/2.PhyloseqObjectPreparation folder is run in order to prepare the final phyloseq object to be used in the data analysis described below. Before running the script make sure that the necessary reference databases are found in the same folder. The taxonomic annotations of the resulting fungal and bacterial ASVs were performed using the UNITE ITS v.8.2 (04.02.2020) (Morrison-Whittle et al., 2017) and the Silva v.138 (Yilmaz et al., 2014) databases as references respectively. 
 ```
-cd Fungi/2.PhyloseqObjectPrep
+cd Fungi/2.PhyloseqObjectPreparation
 # fetch the databases
 wget https://files.plutof.ut.ee/public/orig/1D/B9/1DB95C8AC0A80108BECAF1162D761A8D379AF43E2A4295A3EF353DD1632B645B.gz
 # run the R script
-Fungi Vinification Vinification Vidiano 2020 Quality-Classification-Phyloseq Object.r
+Fungi Vinification Vidiano 2019 Quality-Classification-Phyloseq Object.r
 cd ../../
-cd Bacteria/2.PhyloseqObjectPrep
+cd Bacteria/2.PhyloseqObjectPreparation
 # fetch the databases
 wget https://zenodo.org/record/4587955/files/silva_nr99_v138.1_train_set.fa.gz
 wget https://zenodo.org/record/4587955/files/silva_nr99_v138.1_wSpecies_train_set.fa.gz
 tar vxf *.gz
 # run the R script
-Bacteria Vinification Vinification Vidiano 2020 Quality-Classification-Phyloseq Object.r
+Bacteria Vinification Vidiano 2019 Quality-Classification-Phyloseq Object.r
 cd ../../
 ```
-3) Data analysis folder include subfolders for each analysis graphs supplied at the researched article "Metataxonomic and metatranscriptomic analysis reveal microbial succession and metabolic pathways activated during spontaneous and inoculated vinification". Subfolders contain the R script to be executed for "Fungi", "Bacteria", and "Metatranscriptomic" accordingly. 
+3) Data analysis folder include subfolders for each analysis graphs supplied at the researched article "Metataxonomic and metatranscriptomic analysis reveal microbial succession and metabolic pathways activated during spontaneous and inoculated vinification". Subfolders contain the R script to be executed for "Fungi" and "Bacteria" for both main and supplementary figures. 
 ```
 
 3a.) Run Bar Plots analysis
@@ -102,18 +102,25 @@ cd ../../
 
 3c.) Run PERMANOVA analysis
 
-3d.) Run Volcano plot for the differentially expressed genes
-
-3e.) Run Differential abundance (DA) heatmaps for metatranscriptomic dataset
-
 Further on continue for the supplementary graphs
 
-3f.) Run Rarefaction curves
+3d.) Run Rarefaction curves
 
-3g.) Run The α-diversity Shannon index
+3e.) Run The α-diversity Shannon index
 
-3h.) Run the Differential abundance (DA) heatmaps for microbiome dataset
+3f.) Run the Differential abundance (DA) heatmaps for microbiome dataset
 ```
+
+For Metatranscriptomic file step 0 concern the data retrieval from NCBI and preprocessing, while step 1-2 and the subfolders concern the actual data analysis.
+
+2) Data analysis folder include subfolders for each analysis graphs supplied at the researched article "Metataxonomic and metatranscriptomic analysis reveal microbial succession and metabolic pathways activated during spontaneous and inoculated vinification". Subfolders contain the R script to be executed for "Metatranscriptomic" for both main and supplementary figures. 
+```
+2a.) Run PERMANOVA analysis
+
+2b.) Run Volcano plot for the differentially expressed genes
+
+2c.) Run Differential abundance (DA) heatmaps for metatranscriptomic dataset
+
 
 
 ## Code Usage disclaimer<a name="disclaimer"></a>
