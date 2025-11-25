@@ -44,7 +44,7 @@ done
 ```
 
 1) Then you need to demultiplex the data according to our own demultiplexing method using our in-house script.
-This requires Flexbar v3.0.3 to be installed.
+This requires Flexbar v3.0.3 to be installed, and the mapping file (map_file) accordingly for Fungi and Bacteria that is also provided in each file.
 A detailed description of our in-house multiplexing approach is provided in our [previous work] (https://github.com/SotiriosVasileiadis/mconsort_tbz_degr#16s).
 You need to enter the folder Fungi/1.Demultiplex and run the following commands (change the MY_PROCS variable to whatever number of logical processors you have available and want to devote).
 the following commands are going to save the demultiplexed files in the Fungi(or Bacteria)/1.Demultiplex/demux_out folder.
@@ -54,13 +54,13 @@ for i in {01}
 do
   cd Fungi/1.Demultiplex
   MY_PROCS=56
-  bash DemuxOwnBCsys_absPATH.sh demux_out${i} ${MY_WORKING_DIR_BASE}/Fungi/0.DownloadData/batch${i}/forward.fastq.gz ${MY_WORKING_DIR_BASE}/Fungi/0.DownloadData/batch${i}/reverse.fastq.gz fun${i}_map_file.txt ${MY_PROCS}
+  bash DemuxOwnBCsys_absPATH.sh demux_out${i} ${MY_WORKING_DIR_BASE}/Fungi/0.DownloadData/batch${i}/forward.fastq.gz ${MY_WORKING_DIR_BASE}/Fungi/0.DownloadData/batch${i}/reverse.fastq.gz fun${i}Fungi_map_file.txt ${MY_PROCS}
   cd demux_out${i}/analysis_ready
   gunzip *.gz # unzips files skipped by the Demux script
   cd ../../../../
   cd Bacteria/1.Demultiplex
   MY_PROCS=56
-  bash DemuxOwnBCsys_absPATH.sh demux_ou${i} ${MY_WORKING_DIR_BASE}/Fungi/0.DownloadData/batch${i}/forward.fastq.gz ${MY_WORKING_DIR_BASE}/Fungi/0.DownloadData/batch${i}/reverse.fastq.gz bac${i}_map_file.txt ${MY_PROCS}
+  bash DemuxOwnBCsys_absPATH.sh demux_ou${i} ${MY_WORKING_DIR_BASE}/Fungi/0.DownloadData/batch${i}/forward.fastq.gz ${MY_WORKING_DIR_BASE}/Fungi/0.DownloadData/batch${i}/reverse.fastq.gz bac${i}Bacteria_map_file.txt ${MY_PROCS}
   cd demux_out${i}/analysis_ready
   gunzip *.gz # unzips files skipped by the Demux script
   cd ../../../../
