@@ -22,7 +22,7 @@ In the case of the computational methods, with the "Grapevine_Vinifications_Vidi
 
 ## Description of the order of executed scripts.
 
-For Fungi and Bacteria files, steps 0-2 concern the data retrieval from NCBI and preprocessing (demultiplex), while step 3 and the subfolders concern the actual data analysis.
+For Fungi and Bacteria files, steps 0-2 concern the data retrieval from NCBI and preprocessing (demultiplex) and phyloseq object construction, while step 3 and the subfolders concern the actual data analysis.
 
 0) First, it is necessary to download the sequencing data.
 To do so, you need to enter the "0.DownloadData" subfolder of "Fungi" and "Bacteria" folders accordingly and execute the "fetch_data.sh" bash script for batch (01), this assumes that you are located at the working directory "Grapevine_Vinifications_Vidiano_2019-"). The NCBI submitted amplicons are includes at those batch/files.The script is based on the SRR accession numbers for each batch file and can be found in the 0.DownloadData folder as a.txt file.
