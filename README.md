@@ -138,6 +138,8 @@ done
 2c. Run Volcano plot for the differentially expressed genes
 
 2d. Run Differential abundance (DA) heatmaps for metatranscriptomic dataset
+
+3e. Run Differential functional subsystem analysis
 ```
 
 
