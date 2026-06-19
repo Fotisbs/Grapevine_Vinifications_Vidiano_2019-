@@ -99,9 +99,6 @@ ggplot(res_filtered,
     axis.text.y = element_text(size = 9)
   )
 
-
-
-
 ###Fixing some issues
 
 library(tidyverse)
