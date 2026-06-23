@@ -118,7 +118,8 @@ do
 done
 ```
 
-1) The retrieved sequence reads were processed with the SAMSA2 v2.2.0 pipeline (Westreich et al., 2018) for functional annotation. The functional annotation output is provided in the current folder as a txt file, also the experimental design file is needed with the info for the RNA samples in order to procced, the file is also provided with the name ExperimentalDesigh.txt. This is the starting point for the next step of the analysis for the metatranscriptomic data.
+1) The retrieved sequence reads were processed with the SAMSA2 v2.2.0 pipeline (Westreich et al., 2018) for functional annotation. The functional annotation output is provided in the current folder as a txt file, also the experimental design file is needed with the info for the RNA samples in order to procced, the file is also provided with the name ExperimentalDesigh.txt. This is the starting point for the next step of the analysis for the metatranscriptomic data. Per sample annotation the SAMSA2 v2.2.0 pipeline (Westreich et al., 2018) script is provided in the file.
+In order to run the script issue the following command "sh master_script_final.bash"
 
 2) Data analysis folder include subfolders for each analysis graphs supplied at the researched article "Metataxonomic and metatranscriptomic analysis reveal microbial succession and metabolic pathways activated during spontaneous and inoculated vinification". Subfolders contain the R script to be executed for "Metatranscriptomic" for both main and supplementary figures. 
 ```
