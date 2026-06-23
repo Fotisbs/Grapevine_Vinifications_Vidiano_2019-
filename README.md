@@ -102,7 +102,7 @@ Further on continue for the supplementary graphs
 3f. Run the Differential abundance (DA) heatmaps for microbiome dataset
 ```
 
-For Metatranscriptomic file step 0 concern the data retrieval from NCBI and preprocessing, while step 1-2 and the subfolders concern the actual data analysis.
+For Metatranscriptomic analysis step 0 concern the data retrieval from NCBI and preprocessing, while step 1-2 and the subfolders concern the actual data analysis.
 
 0) First, it is necessary to download the RNA sequencing data.
 To do so, you need to enter the "0.DownloadData" subfolder of "Metatranscriptomic" and execute the "fetch_data.sh" bash script for batch (01), this assumes that you are located at the working directory "Grapevine_Vinifications_Vidiano_2019-"). The NCBI submitted RNA sequences are includes at those batch/files.The script is based on the SRR accession numbers for each batch file and can be found in the 0.DownloadData folder as a.txt file.
