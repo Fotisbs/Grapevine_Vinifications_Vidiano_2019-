@@ -172,6 +172,7 @@ The processed functional annotation table (FunctionalAnnotation.txt) and the exp
 
 The analysis folder contains separate scripts reproducing all transcriptomic figures presented in the manuscript:
 
+```
 2a. NMDS ordination
 
 2b. PERMANOVA
@@ -181,6 +182,7 @@ The analysis folder contains separate scripts reproducing all transcriptomic fig
 2d. Differential gene expression heatmaps
 
 2e. Functional subsystem analysis
+```
 
 All downstream analyses were performed in R using DESeq2. Different statistical models were used depending on the analysis:
 
