@@ -23,6 +23,7 @@ Alternatively, the repository can be downloaded as a ZIP archive directly from G
 Unless otherwise stated, all commands assume that the repository root directory ("Grapevine_Vinifications_Vidiano_2019-") is used as the working directory. The required sequencing datasets can be downloaded directly from the NCBI Sequence Read Archive using the scripts provided in each module.
 
 ## Repository structure
+```
 ├── Fungi/
 │   ├── 0.DownloadData
 │   ├── 1.Demultiplex
@@ -39,7 +40,7 @@ Unless otherwise stated, all commands assume that the repository root directory 
     ├── 0.DownloadData
     ├── 1.FunctionalAnnotation
     └── 2.DataAnalysis
-	
+```	
 
 ## Microbiome (Metataxonomic) analyses
 
