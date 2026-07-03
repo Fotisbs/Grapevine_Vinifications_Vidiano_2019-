@@ -117,6 +117,7 @@ cd ../../
 Metatranscriptomic analyses are organized into three sequential steps: (0) retrieval of raw sequencing data, (1) functional annotation using the SAMSA2 pipeline, and (2) statistical analyses in R.
 
 ***Step 0. First, it is necessary to download the RNA sequencing data***
+
 Download the RNA sequencing data from the NCBI Sequence Read Archive.
 To do so, you need to enter the "0.DownloadData" subfolder of "Metatranscriptomic" and execute the "fetch_data.sh" bash script for batch (01), this assumes that you are located at the working directory "Grapevine_Vinifications_Vidiano_2019-". The NCBI submitted RNA sequences are includes at those batch/files.The script is based on the SRR accession numbers for each batch file and can be found in the 0.DownloadData folder as a.txt file.
 Once the download is done, you need to combine all forward reads to a single file and all reverse reads to another file as well.
@@ -132,6 +133,7 @@ done
 ```
 
 ***Step 1. Functional annotation with SAMSA2***
+
 Raw paired-end RNA sequencing reads were processed using the SAMSA2 v2.2.0 pipeline (Westreich et al., 2018).
 The complete preprocessing workflow is provided in
 
