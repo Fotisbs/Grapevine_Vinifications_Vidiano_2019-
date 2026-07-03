@@ -9,10 +9,9 @@
 
 <sup>2</sup> Agricultural University of Athens, Department of Food Science and Human Nutrition, Laboratory of Enology and Alcoholic Drinks (LEAD),  11855 Iera Odos St. 75 – Athens, Greece
 
-
 ## Repository overview
 
-This repository contains all scripts used to reproduce the microbiome and metatranscriptomic analyses presented in the manuscript. The repository includes data retrieval scripts, preprocessing workflows, statistical analyses and figure generation scripts.
+This repository contains all scripts required to reproduce the microbiome and metatranscriptomic analyses presented in the manuscript, including data retrieval, preprocessing, statistical analyses and figure generation. Raw sequencing data are publicly available through the NCBI Sequence Read Archive, while all downstream analyses can be reproduced using the scripts provided in this repository.
 
 To obtain the repository, install Git (if not already installed https://github.com/git-guides/install-git), open a terminal and clone the repository:
 
@@ -24,22 +23,22 @@ Alternatively, the repository can be downloaded as a ZIP archive directly from G
 Unless otherwise stated, all commands assume that the repository root directory ("Grapevine_Vinifications_Vidiano_2019-") is used as the working directory. The required sequencing datasets can be downloaded directly from the NCBI Sequence Read Archive using the scripts provided in each module.
 
 ## Repository structure
-Fungi/
-    0.DownloadData/
-    1.Demultiplex/
-    2.PhyloseqObjectPreparation/
-    3.DataAnalysis/
-
-Bacteria/
-    0.DownloadData/
-    1.Demultiplex/
-    2.PhyloseqObjectPreparation/
-    3.DataAnalysis/
-
-Metatranscriptomic/
-    0.DownloadData/
-    1.FunctionalAnnotation/
-    2.DataAnalysis/
+├── Fungi/
+│   ├── 0.DownloadData
+│   ├── 1.Demultiplex
+│   ├── 2.PhyloseqObjectPreparation
+│   └── 3.DataAnalysis
+│
+├── Bacteria/
+│   ├── 0.DownloadData
+│   ├── 1.Demultiplex
+│   ├── 2.PhyloseqObjectPreparation
+│   └── 3.DataAnalysis
+│
+└── Metatranscriptomic/
+    ├── 0.DownloadData
+    ├── 1.FunctionalAnnotation
+    └── 2.DataAnalysis
 	
 
 ## Microbiome (Metataxonomic) analyses
@@ -96,20 +95,15 @@ tar vxf *.gz
 Bacteria Vinification Vidiano 2019 Quality-Classification-Phyloseq Object.r
 cd ../../
 ```
-***Step 3. The DataAnalysis folder contains independent R scripts reproducing all microbiome analyses and figures presented in the manuscript***
+***Step 3. The data analysis folder includes independent R scripts reproducing all microbiome analyses and figures presented in the manuscript***
 
 ```
-3a. Taxonomic composition (bar plots)
-
-3b. Beta-diversity (NMDS)
-
-3c. Beta-diversity statistics (PERMANOVA)
-
-3d. Rarefaction curves
-
-3e. Alpha-diversity metrics
-
-3f. Differential abundance heatmaps
+- Taxonomic composition (bar plots)
+- Beta-diversity (NMDS)
+- Beta-diversity statistics (PERMANOVA)
+- Rarefaction curves
+- Alpha-diversity metrics
+- Differential abundance heatmaps
 ```
 
 ## Metatranscriptomic analyses
@@ -119,8 +113,7 @@ Metatranscriptomic analyses are organized into three sequential steps: (0) retri
 ***Step 0. First, it is necessary to download the RNA sequencing data***
 
 Download the RNA sequencing data from the NCBI Sequence Read Archive.
-To do so, you need to enter the "0.DownloadData" subfolder of "Metatranscriptomic" and execute the "fetch_data.sh" bash script for batch (01), this assumes that you are located at the working directory "Grapevine_Vinifications_Vidiano_2019-". The NCBI submitted RNA sequences are includes at those batch/files.The script is based on the SRR accession numbers for each batch file and can be found in the 0.DownloadData folder as a.txt file.
-Once the download is done, you need to combine all forward reads to a single file and all reverse reads to another file as well.
+To do so, you need to enter the "0.DownloadData" subfolder of "Metatranscriptomic" and execute the "fetch_data.sh" bash script for batch (01), this assumes that you are located at the working directory "Grapevine_Vinifications_Vidiano_2019-". The RNA sequencing data deposited in the NCBI Sequence Read Archive are retrieved using the provided SRR accession numbers contained in the batch text files and can be found in the 0.DownloadData folder.Once the download is done, you need to combine all forward reads to a single file and all reverse reads to another file as well.
 ```
 for i in {01}
 do
@@ -143,13 +136,13 @@ master_script_final.bash
 
 ### The pipeline performs the following steps automatically
 ```
-Quality trimming using Trimmomatic
-Paired-end read merging using PEAR
-Removal of residual rRNA sequences using SortMeRNA
-Functional annotation against the RefSeq database using DIAMOND BLASTx
-Functional annotation against the SEED Subsystems database
-Generation of organism-level, gene-level and subsystem count tables
-Initial differential abundance analysis using the SAMSA2 R scripts
+- Quality trimming using Trimmomatic
+- Paired-end read merging using PEAR
+- Removal of residual rRNA sequences using SortMeRNA
+- Functional annotation against the RefSeq database using DIAMOND BLASTx
+- Functional annotation against the SEED Subsystems database
+- Generation of organism-level, gene-level and subsystem count tables
+- Initial differential abundance analysis using the SAMSA2 R scripts
 ```
 The pipeline can be executed with
 
@@ -167,35 +160,36 @@ The required input files are
 FunctionalAnnotation.txt
 ExperimentalDesign.txt
 ```
-
-The processed functional annotation table (FunctionalAnnotation.txt) and the experimental design file (ExperimentalDesign.txt) are provided in this repository and serve as the input for all downstream statistical analyses. The original SAMSA2 pipeline (master_script_final.bash) used to generate these annotation tables is also included for reproducibility.
+The processed functional annotation table (`FunctionalAnnotation.txt`) and the experimental design file (`ExperimentalDesign.txt`) are included in this repository and serve as the input for all downstream statistical analyses. The original SAMSA2 pipeline (`master_script_final.bash`) used to generate these annotation tables is also provided for reproducibility.
 
 The analysis folder contains separate scripts reproducing all transcriptomic figures presented in the manuscript:
 
 ```
-2a. NMDS ordination
-
-2b. PERMANOVA
-
-2c. Differential gene expression (Volcano plot)
-
-2d. Differential gene expression heatmaps
-
-2e. Functional subsystem analysis
+- NMDS ordination
+- PERMANOVA
+- Differential gene expression (Volcano plot)
+- Differential gene expression heatmaps
+- Functional subsystem analysis
 ```
 
-All downstream analyses were performed in R using DESeq2. Different statistical models were used depending on the analysis:
+All downstream analyses were performed in R using DESeq2. Different statistical approaches were used depending on the downstream analysis:
 
-Volcano plot: differential expression was estimated using the model
+**Volcano plot: differential expression was estimated using the model**
 ```
 design = ~ Vinification + Stage
 ```
 to evaluate the overall effect of fermentation strategy while accounting for differences among fermentation stages.
 
-Heatmaps of differentially expressed genes: genes were identified using pairwise contrasts between inoculated and spontaneous fermentations performed independently within each fermentation stage (Start, Middle and End). DESeq2-normalized counts were subsequently used for visualization.
+**Heatmaps of differentially expressed genes**
+```
+Genes were identified using pairwise contrasts between inoculated and spontaneous fermentations performed independently within each fermentation stage (Start, Middle and End). DESeq2-normalized counts were subsequently used for visualization.
+```
+**Functional subsystem analysis** 
+```
+Subsystem abundances were compared between inoculated and spontaneous fermentations independently within each fermentation stage using DESeq2 pairwise contrasts.
+```
 
-Functional subsystem analysis: subsystem abundances were compared between inoculated and spontaneous fermentations independently within each fermentation stage using DESeq2 pairwise contrasts.
-
+## Together, these scripts reproduce all metatranscriptomic analyses and figures presented in the manuscript, starting from the processed annotation tables generated by the SAMSA2 workflow.
 
 ## Code Usage disclaimer<a name="disclaimer"></a>
 
