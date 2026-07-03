@@ -41,8 +41,8 @@ Metatranscriptomic/
     1.FunctionalAnnotation/
     2.DataAnalysis/
 	
-## Description of the order of executed scripts.
-# Microbiome (Metataxonomic) analyses
+
+## Microbiome (Metataxonomic) analyses
 
 For Fungi and Bacteria files, steps 0-2 concern the data retrieval from NCBI and preprocessing (demultiplex) and phyloseq object construction, while step 3 and the subfolders concern the actual data analysis.
 
@@ -106,7 +106,7 @@ cd ../../
 3f. Differential abundance heatmaps
 ```
 
-# Metatranscriptomic analyses
+## Metatranscriptomic analyses
 
 Metatranscriptomic analyses are organized into three sequential steps: (0) retrieval of raw sequencing data, (1) functional annotation using the SAMSA2 pipeline, and (2) statistical analyses in R.
 
@@ -134,15 +134,15 @@ master_script_final.bash
 ```
 
 ## The pipeline performs the following steps automatically:
-
-# Quality trimming using Trimmomatic
-# Paired-end read merging using PEAR
-# Removal of residual rRNA sequences using SortMeRNA
-# Functional annotation against the RefSeq database using DIAMOND BLASTx
-# Functional annotation against the SEED Subsystems database
-# Generation of organism-level, gene-level and subsystem count tables
-# Initial differential abundance analysis using the SAMSA2 R scripts
-
+```
+Quality trimming using Trimmomatic
+Paired-end read merging using PEAR
+Removal of residual rRNA sequences using SortMeRNA
+Functional annotation against the RefSeq database using DIAMOND BLASTx
+Functional annotation against the SEED Subsystems database
+Generation of organism-level, gene-level and subsystem count tables
+Initial differential abundance analysis using the SAMSA2 R scripts
+```
 The pipeline can be executed with
 
 ```
