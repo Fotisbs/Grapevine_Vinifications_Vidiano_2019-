@@ -89,19 +89,17 @@ cd ../../
 3) Data analysis folder include subfolders for each analysis graphs supplied at the researched article "Metataxonomic and metatranscriptomic analysis reveal microbial succession and metabolic pathways activated during spontaneous and inoculated vinification". Subfolders contain the R script to be executed for "Fungi" and "Bacteria" for both main and supplementary figures. 
 ```
 
-3a. Run Bar Plots Analysis
+3a. Taxonomic composition (bar plots)
 
-3b. Run NMDS Analysis
+3b. Beta-diversity (NMDS)
 
-3c. Run PERMANOVA Analysis
+3c. Beta-diversity statistics (PERMANOVA)
 
-Further on continue for the supplementary graphs
+3d. Rarefaction curves
 
-3d. Run Rarefaction curves
+3e. Alpha-diversity metrics
 
-3e. Run The α-diversity Shannon index
-
-3f. Run the Differential abundance (DA) heatmaps for microbiome dataset
+3f. Differential abundance heatmaps
 ```
 
 Metatranscriptomic analyses
@@ -157,25 +155,31 @@ FunctionalAnnotation.txt
 ExperimentalDesign.txt
 ```
 These files are included in the repository.
+The processed functional annotation table (FunctionalAnnotation.txt) and the experimental design file (ExperimentalDesign.txt) are provided in this repository and serve as the input for all downstream statistical analyses. The original SAMSA2 pipeline (master_script_final.bash) used to generate these annotation tables is also included for reproducibility.
 
 The analysis folder contains separate scripts reproducing all transcriptomic figures presented in the manuscript:
 
-2a. Run NMDS Analysis
+2a. NMDS ordination
 
-2b. Run PERMANOVA Analysis
+2b. PERMANOVA
 
-2c. Run Volcano plot for the differentially expressed genes
+2c. Differential gene expression (Volcano plot)
 
-2d. Run Differential abundance (DA) heatmaps for metatranscriptomic dataset
+2d. Differential gene expression heatmaps
 
-3e. Run Differential functional subsystem analysis
+2e. Functional subsystem analysis
 
-All analyses were performed using DESeq2 with the experimental design
+All downstream analyses were performed in R using DESeq2. Different statistical models were used depending on the analysis:
 
-
+Volcano plot: differential expression was estimated using the model
+```
 design = ~ Vinification + Stage
+```
+to evaluate the overall effect of fermentation strategy while accounting for differences among fermentation stages.
 
-which evaluates the effect of fermentation strategy while accounting for fermentation stage
+Heatmaps of differentially expressed genes: genes were selected based on pairwise comparisons between inoculated and spontaneous fermentations within each fermentation stage (Start, Middle and End), allowing stage-specific expression patterns to be visualized.
+
+Functional subsystem analysis: subsystem abundances were compared between inoculated and spontaneous fermentations independently for each fermentation stage using DESeq2.
 
 
 ## Code Usage disclaimer<a name="disclaimer"></a>
