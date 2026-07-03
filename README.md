@@ -14,7 +14,7 @@
 
 This repository contains all scripts used to reproduce the microbiome and metatranscriptomic analyses presented in the manuscript. The repository includes data retrieval scripts, preprocessing workflows, statistical analyses and figure generation scripts.
 
-## To obtain the repository, install Git (if not already installed https://github.com/git-guides/install-git), open a terminal and clone the repository:
+To obtain the repository, install Git (if not already installed https://github.com/git-guides/install-git), open a terminal and clone the repository:
 
 ```
 $ git clone https://github.com/Fotisbs/Grapevine_Vinifications_Vidiano_2019-.git
