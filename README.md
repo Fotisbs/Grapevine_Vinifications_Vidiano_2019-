@@ -71,7 +71,9 @@ This step requires Flexbar v3.0.3 together with the mapping file (map_file) prov
 You need to enter the folder Fungi (or Bacteria)/1.Demultiplex and run the following commands (change the MY_PROCS variable to whatever number of logical processors you have available and want to devote),
 the following commands are going to save the demultiplexed files in the Fungi(or Bacteria)/1.Demultiplex/demux_out folder.
 
-## The demultiplexing workflow follows the protocol described in: https://github.com/SotiriosVasileiadis/mconsort_tbz_degr#16s
+```
+The demultiplexing workflow follows the protocol described in: https://github.com/SotiriosVasileiadis/mconsort_tbz_degr#16s
+```
 
 2) Following, the "Vinification Vidiano 2019 Quality-Classification-Phyloseq Object.R" script of the Fungi(or Bacteria)/2.PhyloseqObjectPreparation folder is run in order to prepare the final phyloseq object to be used in the data analysis described below. Before running the script make sure that the necessary reference databases are found in the same folder. The taxonomic annotations of the resulting fungal and bacterial ASVs were performed using the UNITE ITS v.8.2 (04.02.2020) (Morrison-Whittle et al., 2017) and the Silva v.138 (Yilmaz et al., 2014) databases as references respectively. The sample metadata file (samdf.txt), included in the repository, is also required for construction of the phyloseq objects.
 ```
