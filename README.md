@@ -46,7 +46,7 @@ Metatranscriptomic/
 
 For Fungi and Bacteria files, steps 0-2 concern the data retrieval from NCBI and preprocessing (demultiplex) and phyloseq object construction, while step 3 and the subfolders concern the actual data analysis.
 
-0) First, it is necessary to download the sequencing data.
+### Step 0. First, it is necessary to download the sequencing data.
 To do so, you need to enter the "0.DownloadData" subfolder of "Fungi" and "Bacteria" folders accordingly and execute the "fetch_data.sh" bash script for batch (01), this assumes that you are located at the working directory "Grapevine_Vinifications_Vidiano_2019-".
 
 The script downloads all raw amplicon sequencing reads deposited in the NCBI Sequence Read Archive using the corresponding SRR accession numbers listed in the batch files.Once the download is done, you need to combine all forward reads to a single file and all reverse reads to another file as well.
