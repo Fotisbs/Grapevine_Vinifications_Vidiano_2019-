@@ -69,7 +69,7 @@ done
 
 ***Step 1. Then you need to demultiplex the data according to our own demultiplexing method using our in-house script***
 
-This step requires Flexbar v3.0.3 together with the mapping file (map_file) provided in the corresponding folder. A detailed description of our in-house multiplexing approach is provided in our [previous work] (https://github.com/SotiriosVasileiadis/mconsort_tbz_degr#16s).
+This step requires Flexbar v3.0.3 together with the mapping file (map_file) provided in the corresponding folder. A detailed description of our in-house multiplexing approach is provided in (https://github.com/SotiriosVasileiadis/mconsort_tbz_degr#16s).
 You need to enter the folder Fungi (or Bacteria)/1.Demultiplex and run the following commands (change the MY_PROCS variable to whatever number of logical processors you have available and want to devote),
 the following commands are going to save the demultiplexed files in the Fungi(or Bacteria)/1.Demultiplex/demux_out folder.
 
