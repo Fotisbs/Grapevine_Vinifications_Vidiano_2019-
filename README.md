@@ -141,6 +141,7 @@ Generation of organism-level, gene-level and subsystem count tables
 Initial differential abundance analysis using the SAMSA2 R scripts
 
 The pipeline can be executed with
+
 ```
 sh master_script_final.bash
 ```
@@ -168,12 +169,12 @@ The analysis folder contains separate scripts reproducing all transcriptomic fig
 2d. Run Differential abundance (DA) heatmaps for metatranscriptomic dataset
 
 3e. Run Differential functional subsystem analysis
-```
+
 All analyses were performed using DESeq2 with the experimental design
 
-```
+
 design = ~ Vinification + Stage
-```
+
 which evaluates the effect of fermentation strategy while accounting for fermentation stage
 
 
