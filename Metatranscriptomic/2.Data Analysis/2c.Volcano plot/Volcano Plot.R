@@ -47,7 +47,7 @@ dds_ProcFunc <- DESeq(dds_ProcFunc)
 saveRDS(dds_ProcFunc, file = "dds_ProcFunc.RDS")
 
 
-res <- results(dds_ProcFunc, contrast = c("Vinification", "commercial", "inoculated"))
+res <- results(dds_ProcFunc, contrast = c("Vinification", "spontaneous", "inoculated"))
 
 # Order by adjusted p-value
 res <- res[order(res$pvalue), ]
