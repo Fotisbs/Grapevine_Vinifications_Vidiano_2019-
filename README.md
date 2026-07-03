@@ -141,7 +141,7 @@ The complete preprocessing workflow is provided in
 master_script_final.bash
 ```
 
-## The pipeline performs the following steps automatically
+### The pipeline performs the following steps automatically
 ```
 Quality trimming using Trimmomatic
 Paired-end read merging using PEAR
