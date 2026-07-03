@@ -24,8 +24,6 @@ $ git clone https://github.com/Fotisbs/Grapevine_Vinifications_Vidiano_2019-.git
 
 Unless otherwise stated, all commands assume that the repository root directory ("Grapevine_Vinifications_Vidiano_2019-") is used as the working directory. The required sequencing datasets can be downloaded directly from the NCBI Sequence Read Archive using the scripts provided in each module.
 
-## Description of the order of executed scripts.
-
 ## Repository structure
 Fungi/
     0.DownloadData/
@@ -43,7 +41,8 @@ Metatranscriptomic/
     0.DownloadData/
     1.FunctionalAnnotation/
     2.DataAnalysis/
-
+	
+## Description of the order of executed scripts.
 # Microbiome (Metataxonomic) analyses
 
 For Fungi and Bacteria files, steps 0-2 concern the data retrieval from NCBI and preprocessing (demultiplex) and phyloseq object construction, while step 3 and the subfolders concern the actual data analysis.
