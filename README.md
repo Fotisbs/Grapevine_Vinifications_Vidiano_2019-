@@ -11,7 +11,7 @@
 
 ## Repository overview
 
-This repository contains all scripts required to reproduce the microbiome and metatranscriptomic analyses presented in the manuscript, including data retrieval, preprocessing, statistical analyses and figure generation. Raw sequencing data are publicly available through the NCBI Sequence Read Archive, while all downstream analyses can be reproduced using the scripts provided in this repository.
+This repository contains all scripts required to reproduce the microbiome (metataxonomic) and metatranscriptomic analyses presented in the manuscript, including sequencing data retrieval, preprocessing, statistical analyses and figure generation. Raw sequencing data are publicly available through the NCBI Sequence Read Archive (NCBI SRA), while all downstream analyses can be reproduced using the scripts provided in this repository.
 
 To obtain the repository, install Git (if not already installed https://github.com/git-guides/install-git), open a terminal and clone the repository:
 
@@ -44,7 +44,13 @@ Unless otherwise stated, all commands assume that the repository root directory 
 
 ## Microbiome (Metataxonomic) analyses
 
-For Fungi and Bacteria files, steps 0-2 concern the data retrieval from NCBI and preprocessing (demultiplex) and phyloseq object construction, while step 3 and the subfolders concern the actual data analysis.
+The microbiome workflow is organized into four sequential steps:
+
+0. Download raw sequencing data
+1. Demultiplex sequencing reads
+2. Construct phyloseq objects
+3. Perform downstream statistical analyses
+
 
 ***Step 0. First, it is necessary to download the sequencing data***
 
@@ -77,7 +83,7 @@ the following commands are going to save the demultiplexed files in the Fungi(or
 The demultiplexing workflow follows the protocol described in: https://github.com/SotiriosVasileiadis/mconsort_tbz_degr#16s
 ```
 
-***Step 2. Following, the "Vinification Vidiano 2019 Quality-Classification-Phyloseq Object.R" script of the Fungi (or Bacteria)***
+***Step 2. The script `Vinification Vidiano 2019 Quality-Classification-Phyloseq Object.R` constructs the final phyloseq object used for all downstream microbiome analyses.***
 
 PhyloseqObjectPreparation folder is run in order to prepare the final phyloseq object to be used in the data analysis described below. Before running the script make sure that the necessary reference databases are found in the same folder. The taxonomic annotations of the resulting fungal and bacterial ASVs were performed using the UNITE ITS v.8.2 (04.02.2020) (Morrison-Whittle et al., 2017) and the Silva v.138 (Yilmaz et al., 2014) databases as references respectively. The sample metadata file (samdf.txt), included in the repository, is also required for construction of the phyloseq objects.
 ```
@@ -99,7 +105,7 @@ cd ../../
 ***Step 3. The data analysis folder includes independent R scripts reproducing all microbiome analyses and figures presented in the manuscript***
 
 ```
-- Taxonomic composition (bar plots)
+- Taxonomic composition
 - Beta-diversity (NMDS)
 - Beta-diversity statistics (PERMANOVA)
 - Rarefaction curves
@@ -135,7 +141,7 @@ The complete preprocessing workflow is provided in
 master_script_final.bash
 ```
 
-### The pipeline performs the following steps automatically
+### The pipeline automatically performs the following steps
 ```
 - Quality trimming using Trimmomatic
 - Paired-end read merging using PEAR
@@ -143,7 +149,7 @@ master_script_final.bash
 - Functional annotation against the RefSeq database using DIAMOND BLASTx
 - Functional annotation against the SEED Subsystems database
 - Generation of organism-level, gene-level and subsystem count tables
-- Initial differential abundance analysis using the SAMSA2 R scripts
+- Initial differential expression analyses using the SAMSA2 R scripts
 ```
 The pipeline can be executed with
 
@@ -163,7 +169,7 @@ ExperimentalDesign.txt
 ```
 The processed functional annotation table (`FunctionalAnnotation.txt`) and the experimental design file (`ExperimentalDesign.txt`) are included in this repository and serve as the input for all downstream statistical analyses. The original SAMSA2 pipeline (`master_script_final.bash`) used to generate these annotation tables is also provided for reproducibility.
 
-The analysis folder contains separate scripts reproducing all transcriptomic figures presented in the manuscript:
+The analysis folder contains independent R scripts reproducing all transcriptomic analyses and figures presented in the manuscript.
 
 ```
 - NMDS ordination
@@ -175,7 +181,7 @@ The analysis folder contains separate scripts reproducing all transcriptomic fig
 
 All downstream statistical analyses were performed in R using **DESeq2**. Separate scripts are provided for each analysis, and different statistical designs were applied depending on the biological question addressed:
 
-**Volcano plot (overall fermentation effect)**
+**Volcano plot (overall comparison between fermentation strategies)**
 ```
 Differential expression was estimated using the model
 
@@ -193,7 +199,30 @@ Subsystem abundances were compared between inoculated and spontaneous fermentati
  independently within each fermentation stage using DESeq2 pairwise contrasts.
 ```
 
-Together, these scripts reproduce all metatranscriptomic analyses and figures presented in the manuscript, starting from the processed annotation tables generated by the SAMSA2 workflow.
+Together, these scripts reproduce all metatranscriptomic analyses and figures presented in the manuscript, starting from the processed annotation tables generated by the SAMSA2 workflow and ending with the final statistical analyses and visualizations.
+
+### Software requirements
+
+The analyses were performed in R (v4.3.1) using the packages:
+
+- phyloseq
+- vegan
+- DESeq2
+- ggplot2
+- pheatmap
+- dplyr
+- agricolae
+- apeglm
+- ggrepel
+- RColorBrewer
+
+The metatranscriptomic preprocessing workflow additionally requires:
+
+- SAMSA2 v2.2.0
+- Trimmomatic v0.39
+- PEAR v0.9.10
+- SortMeRNA v2.1b
+- DIAMOND v2.0.11
 
 ## Code Usage disclaimer<a name="disclaimer"></a>
 
