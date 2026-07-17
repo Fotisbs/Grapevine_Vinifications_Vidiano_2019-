@@ -43,7 +43,7 @@ cts <- read.table(
 # ----------------------------------------------------------
 
 Information <- read.table(
-  file = "TheDesign.txt",
+  file = "ExperimentalDesign.txt",
   header = TRUE,
   sep = "\t",
   stringsAsFactors = FALSE,
@@ -54,7 +54,7 @@ Information <- read.table(
 # Match metadata order to count-table columns
 if (!all(colnames(cts) %in% rownames(Information))) {
   stop(
-    "Sample names in FinalNames.txt and TheDesign.txt do not match."
+    "Sample names in FinalNames.txt and ExperimentalDesign.txt do not match."
   )
 }
 
