@@ -1,0 +1,5 @@
+	Vinification	Stage
+control.B5	spontaneous	End
+control.B6	spontaneous	End
+experimental.B11	inoculated	End
+experimental.B12	inoculated	End

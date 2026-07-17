@@ -1,0 +1,5 @@
+	Vinification	Stage
+control.B1	spontaneous	Start
+control.B2	spontaneous	Start
+experimental.B7	inoculated	Start
+experimental.B8	inoculated	Start

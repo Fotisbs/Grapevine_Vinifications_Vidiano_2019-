@@ -1,0 +1,5 @@
+	Vinification	Stage
+control.B3	spontaneous	Middle
+control.B4	spontaneous	Middle
+experimental.B10	inoculated	Middle
+experimental.B9	inoculated	Middle
