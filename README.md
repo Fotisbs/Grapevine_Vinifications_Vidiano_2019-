@@ -164,10 +164,10 @@ The downstream statistical analyses presented in the manuscript were performed i
 The required input files are
 
 ```
-FunctionalAnnotation.txt
+FinalNames.txt
 ExperimentalDesign.txt
 ```
-The processed functional annotation table (`FunctionalAnnotation.txt`) and the experimental design file (`ExperimentalDesign.txt`) are included in this repository and serve as the input for all downstream statistical analyses. The original SAMSA2 pipeline (`master_script_final.bash`) used to generate these annotation tables is also provided for reproducibility.
+The processed functional annotation table (`FinalNames.txt`) and the experimental design file (`ExperimentalDesign.txt`) are included in this repository and serve as the input for all downstream statistical analyses. The original SAMSA2 pipeline (`master_script_final.bash`) used to generate these annotation tables is also provided for reproducibility.
 
 The analysis folder contains independent R scripts reproducing all transcriptomic analyses and figures presented in the manuscript.
 
