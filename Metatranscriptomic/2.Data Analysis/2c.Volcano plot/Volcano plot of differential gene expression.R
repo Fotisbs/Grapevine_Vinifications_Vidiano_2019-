@@ -29,7 +29,7 @@ library(vegan)
 # ----------------------------------------------------------
 
 cts <- read.table(
-  file = "Genes.txt",
+  file = "FinalNames.txt",
   header = TRUE,
   sep = "\t",
   quote = "",
@@ -54,7 +54,7 @@ Information <- read.table(
 # Match metadata order to count-table columns
 if (!all(colnames(cts) %in% rownames(Information))) {
   stop(
-    "Sample names in Genes.txt and TheDesign.txt do not match."
+    "Sample names in FinalNames.txt and TheDesign.txt do not match."
   )
 }
 
