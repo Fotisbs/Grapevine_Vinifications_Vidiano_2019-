@@ -1,4 +1,4 @@
-##FIGURE 1 — Faceted differential barplots
+##FIGURE 6 — Faceted differential barplots
 
 # Load libraries
 library(tidyverse)
