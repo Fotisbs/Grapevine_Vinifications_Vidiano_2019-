@@ -1,0 +1,14 @@
+Samples	Vinification	Stage
+Spontaneous.Start_Sample_83	spontaneous	Start
+Spontaneous.Start_Sample_84	spontaneous	Start
+Spontaneous.Middle_Sample_85	spontaneous	Middle
+Spontaneous.Middle_Sample_86	spontaneous	Middle
+Spontaneous.End_Sample_87	spontaneous	End
+Spontaneous.End_Sample_88	spontaneous	End
+Inoculated.Start_Sample_93	inoculated	Start
+Inoculated.Start_Sample_94	inoculated	Start
+Inoculated.Middle_Sample_95	inoculated	Middle
+Inoculated.Middle_Sample_96	inoculated	Middle
+Inoculated.End_Sample_97	inoculated	End
+Inoculated.End_Sample_98	inoculated	End						
+
