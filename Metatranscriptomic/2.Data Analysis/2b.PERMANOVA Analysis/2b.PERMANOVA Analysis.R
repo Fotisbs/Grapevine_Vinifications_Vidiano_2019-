@@ -1,7 +1,7 @@
 ##PERMANOVA##
 #Build the object with transcriptomic data (80046 Genes, counts)
 
-cts <- read.table (file = "Genes.txt", header = TRUE, sep = "\t",quote = "", stringsAsFactors = FALSE, row.names = 1)
+cts <- read.table (file = "FinalNames.txt", header = TRUE, sep = "\t",quote = "", stringsAsFactors = FALSE, row.names = 1)
 View(data.frame(cts))
 
 TheDesign <- read.table (file = "ExperimentalDesign.txt", header = TRUE, sep = "\t",quote = "", stringsAsFactors = FALSE, row.names = 1)
