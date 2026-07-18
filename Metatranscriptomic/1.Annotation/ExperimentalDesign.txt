@@ -1,0 +1,13 @@
+Samples	Vinification	Stage
+control.B01	spontaneous	Start
+control.B02	spontaneous	Start
+control.B03	spontaneous	Middle
+control.B04	spontaneous	Middle
+control.B05	spontaneous	End
+control.B06	spontaneous	End
+experimental.B07	inoculated	Start
+experimental.B08	inoculated	Start
+experimental.B09	inoculated	Middle
+experimental.B10	inoculated	Middle
+experimental.B11	inoculated	End
+experimental.B12	inoculated	End
