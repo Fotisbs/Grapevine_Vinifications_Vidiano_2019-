@@ -10,9 +10,17 @@
 # DESeq2 design:
 #   ~ Vinification
 #
-# Gene-selection criteria:
+# Differential-expression criteria:
 #   Benjamini–Hochberg adjusted p-value < 0.05
 #   Absolute log2 fold-change > 1
+#
+# Heatmap gene selection:
+#   All tested genes were ranked according to their
+#   Benjamini–Hochberg adjusted p-values, and the 20
+#   top-ranked genes were selected for visualization.
+#   Heatmap selection was therefore based on ranking by
+#   adjusted p-value and did not require all displayed genes
+#   to satisfy the differential-expression thresholds above.
 #
 # Heatmap values:
 #   DESeq2-normalized counts scaled independently for each
@@ -57,8 +65,6 @@ Information <- read.table(
   row.names = 1,
   check.names = FALSE
 )
-
-
 
 # Confirm that metadata sample IDs match count-table columns
 if (!all(colnames(cts) %in% rownames(Information))) {
@@ -175,9 +181,11 @@ write.table(
 )
 
 # ----------------------------------------------------------
-# 7. Select significant genes
+# 7. Identify genes meeting the DE significance criteria
 # ----------------------------------------------------------
 
+# These thresholds define differential expression but are
+# NOT used to restrict the genes entering the heatmap.
 significant_genes <- deseq_results_df %>%
   filter(
     !is.na(padj),
@@ -197,24 +205,53 @@ write.table(
   row.names = FALSE
 )
 
-if (nrow(significant_genes) == 0) {
-  stop(
-    "No genes met the criteria padj < 0.05 ",
-    "and |log2FC| > 1 at S1."
-  )
-}
+message(
+  nrow(significant_genes),
+  " genes met the criteria padj < 0.05 and |log2FC| > 1 at S1."
+)
 
-# Select up to 20 most significant genes
-top_genes <- significant_genes %>%
+# ----------------------------------------------------------
+# 8. Select the 20 top-ranked genes for the heatmap
+# ----------------------------------------------------------
+
+# Rank all tested genes by Benjamini–Hochberg adjusted
+# p-value. Genes with NA padj values are placed last.
+#
+# IMPORTANT:
+# Heatmap selection is based on ranking by padj and does not
+# require the selected genes to pass padj < 0.05 and
+# |log2FC| > 1.
+
+heatmap_ranked_genes <- deseq_results_df %>%
+  arrange(
+    is.na(padj),
+    padj
+  )
+
+top_genes <- heatmap_ranked_genes %>%
   slice_head(
-    n = min(20, nrow(significant_genes))
+    n = min(20, nrow(heatmap_ranked_genes))
   ) %>%
   pull(
     Gene
   )
 
+# Export the genes selected for Figure 5a
+heatmap_top20_results <- heatmap_ranked_genes %>%
+  slice_head(
+    n = min(20, nrow(heatmap_ranked_genes))
+  )
+
+write.table(
+  heatmap_top20_results,
+  file = "S1_DESeq2_top20_by_adjusted_pvalue.txt",
+  sep = "\t",
+  quote = FALSE,
+  row.names = FALSE
+)
+
 # ----------------------------------------------------------
-# 8. Extract DESeq2-normalized counts
+# 9. Extract DESeq2-normalized counts
 # ----------------------------------------------------------
 
 normalized_counts <- counts(
@@ -228,6 +265,7 @@ selected_normalized_counts <- normalized_counts[
   drop = FALSE
 ]
 
+# Export all DESeq2-normalized counts
 write.table(
   normalized_counts,
   file = "S1_DESeq2_normalized_counts.txt",
@@ -236,8 +274,17 @@ write.table(
   col.names = NA
 )
 
+# Export normalized counts for the 20 heatmap genes
+write.table(
+  selected_normalized_counts,
+  file = "S1_Figure5a_top20_normalized_counts.txt",
+  sep = "\t",
+  quote = FALSE,
+  col.names = NA
+)
+
 # ----------------------------------------------------------
-# 9. Apply row-wise range standardization
+# 10. Apply row-wise range standardization
 # ----------------------------------------------------------
 
 heatmap_matrix <- decostand(
@@ -253,8 +300,17 @@ heatmap_matrix <- heatmap_matrix[
   drop = FALSE
 ]
 
+# Export the actual 0–1 values displayed in the heatmap
+write.table(
+  heatmap_matrix,
+  file = "S1_Figure5a_top20_range_scaled_values.txt",
+  sep = "\t",
+  quote = FALSE,
+  col.names = NA
+)
+
 # ----------------------------------------------------------
-# 10. Prepare sample annotation
+# 11. Prepare sample annotation
 # ----------------------------------------------------------
 
 annotation_col <- data.frame(
@@ -268,7 +324,7 @@ rownames(annotation_col) <- colnames(
 )
 
 # ----------------------------------------------------------
-# 11. Generate the heatmap
+# 12. Generate the heatmap
 # ----------------------------------------------------------
 
 pdf(
@@ -295,3 +351,4 @@ pheatmap(
 )
 
 dev.off()
+```
